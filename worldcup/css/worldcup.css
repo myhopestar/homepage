@@ -1,0 +1,42 @@
+/* CSS Document */
+
+/*allfiles*/
+
+body{ margin-top:0px; background-color:#121212; background-image:url(../images/background.jpg); background-size:100% 100%;
+background-attachment:fixed;}
+#containers{ height:auto; width:968px; position:absolute; z-index:2; margin:auto; left:0; top:0; right:0; border: 15px solid;
+border-color:#2e2e2e; padding:0px;}
+#head{ width:968px; margin-left:auto; margin-right:auto; padding:0px;}
+#body{ height:100%; width:968px; margin-left:auto; margin-right:auto}
+#footer{ height:100%; width:968px; margin-left:auto; margin-right:auto}
+.inputsize{ width:940px; height:70px; }
+.hrsize{ width:940px;}
+#backgound{ width:100%; height:auto; z-index:1; position:fixed; left:0px;}
+#words{ padding-left:auto; padding-right:auto; color:#33FFCC}
+#container{ padding-left:auto; padding-right:auto; color:#33FFCC}
+
+/*frame*/
+
+#nav { list-style: none; padding: 0; margin:0px; background: #2e2e2e url(images/nav_bar.jpg) repeat-x; display: block;
+overflow: hidden; font-size: 0.9em; height:33px; text-transform:capitalize;}
+#nav li { display: inline;}
+#nav li a { display: block; float: left; padding: 10px 20px; color: white; text-decoration: none;}
+#nav li a:hover { background-color:#6600CC; background-repeat:repeat-x;}
+#load { display: none; position: absolute; right: 10px; top: 10px; background: url(../images/ajax-loader.gif); width: 43px;
+height: 11px; text-indent: -9999em;}
+
+
+/*index.asp*/
+#showwords,#word{ width:960px; height:22px; padding-top:4px; border-color:#0000FF; border-style:solid; text-align:center; background-color:#CCFF99;}
+#showwords{ width:960px; height:auto; display:none;}
+#word{ cursor:pointer}
+
+
+/*background.html*/
+#background{ height:auto; width:100%; margin-left:auto; margin-right:auto}
+
+
+/*result.asp*/
+.chart{ padding-left:auto; padding-right:auto; color:#33FFCC}
+h2 a{text-decoration:none; color:#33FFCC}
+h2 a:hover {text-decoration:none; color:red;}

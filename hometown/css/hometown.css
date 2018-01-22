@@ -1,0 +1,76 @@
+
+.myweb-header .myweb-header-nav ul,.travel #icons ul,.food #icons-food ul{padding:0;margin:0;list-style:none}
+.img_left{float:left;margin-right:20px;margin-bottom:15px}
+.img_right{float:right;margin-left:20px;margin-bottom:15px}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,ol,ul,li{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+body{line-height:1}
+ol,ul{list-style:none}
+body{background-color:#CCCCCC;font-family:'Open Sans',Arial,sans-serif;color:#777777;font-size:14px;line-height:1.75em}
+a:active,a:visited,a:link{outline:0;border:0;text-decoration:none}
+.content{display:none;margin-top:60px}
+.travel-content,.map-content,.food-content{background-color:white;padding:30px;border:1px solid #cfcfcf}
+.page-title{color:#b10021;font-size:24px;font-weight:600}
+.introduction{display:block}
+.introduction .introduction-item img{transform: rotateY(0deg);-ms-transform: rotateY(0deg);-webkit-transform: rotateY(0deg);transition:all 2s;-webkit-transition:all 2s;}
+.introduction .introduction-item img:hover{transform: rotateY(360deg);-ms-transform: rotateY(360deg);-webkit-transform: rotateY(360deg);}
+.introduction .introduction-item p:hover{color:#b10021;}
+.landscape{display:block}
+.myweb-header .myweb-header-nav{display:block;background-color:#b10021;text-align:center;padding:15px 0}
+.myweb-header .myweb-header-nav ul li{display:inline-block;margin-right:60px}
+.myweb-header .myweb-header-nav ul li:last-child{margin-right:0px}
+.myweb-header .myweb-header-nav ul li a{padding:10px 20px;display:inline-block;color:white;font-size:18px}
+.myweb-header .myweb-header-nav ul li a.active{background-color:#eeeeee;color:#2a2a2a;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;border-radius:4px}
+.myweb-header .myweb-title{margin-top:60px;display:inline-block;font-size:36px;font-weight:700;line-height:normal}
+.landscape-item{background-color:white;padding:10px;-webkit-box-shadow:inset 0 0 1px #666;-moz-box-shadow:inset 0 0 1px #666;box-shadow:inset 0 0 1px #666;margin-bottom:30px;position:relative;overflow:hidden}
+.landscape-item .content-landscape{text-align:center}
+.landscape-item .content-landscape h3{color:#b10021;font-size:16px;font-weight:300;margin-top:5px;padding-bottom:5px;display:inline-block}
+.landscape-item img{width:100%}
+.landscape-item .overlay{position:absolute;top:0;left:0;width:100%;min-width:100%;min-height:100%;height:100%;background-color:rgba(177,0,33,0.9);display:block;-webkit-transition:all 50ms ease-in-out;-moz-transition:all 50ms ease-in-out;-ms-transition:all 50ms ease-in-out;-o-transition:all 50ms ease-in-out;transition:all 50ms ease-in-out}
+.landscape-item .overlay a{color:#2a2a2a;width:32px;height:32px;background-color:white;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;border-radius:3px;text-align:center;line-height:32px;position:absolute;top:50%;left:50%;margin-top:-16px;margin-left:-16px}
+.introduction-item{background-color:white;padding:10px;border:1px solid #dddddd;margin-bottom:30px;overflow:hidden}
+.introduction-item img{width:100%}
+.introduction-item a.product-title{margin:15px 0;display:inline-block;font-weight:400;font-size:18px}
+.travel p{margin-top:30px;}
+.travel p:hover{color:#f03d45;}
+.travel ul{margin-top:30px;}
+.travel ul li{margin-left:20px}
+.travel ul li:hover{color:#952842;}
+.travel ul li:before{content:"+";margin-right:10px;color:#919191}
+.travel #icons{overflow:hidden}
+.travel #icons ul li{margin:0}
+.travel #icons ul li:before{content:'';margin:0}
+.travel #icons .icon-item{display:block;padding:30px 25px;margin-bottom:30px;background-color:#999999;cursor:pointer;text-align:center}
+.travel #icons .icon-item i{font-size:24px;color:white}
+.travel #icons .icon-item span{margin-top:25px;display:block;font-size:18px;color:white;font-weight:600}
+.travel #icons .active{background-color:#b10021}
+.food p{margin-top:30px}
+.food p:hover{color:#f03d45;}
+.food ul{margin-top:30px}
+.food ul li{margin-left:20px}
+.food ul li:hover{color:#952842;}
+.food ul li:before{content:"+";margin-right:10px;color:#919191}
+.food #icons-food ul li{margin:0}
+.food #icons-food ul li:before{content:'';margin:0}
+.food #icons-food .icon-item{display:block;padding:30px 25px;margin-bottom:30px;background-color:#999999;cursor:pointer;text-align:center}
+.food #icons-food .icon-item i{font-size:24px;color:white}
+.food #icons-food .icon-item span{margin-top:25px;display:block;font-size:18px;color:white;font-weight:600}
+.food #icons-food .active{background-color:#b10021}
+.map .map-content{margin-bottom:30px}
+.map .map-content .map-traffic a img:hover{cursor:pointer;}
+.map-traffic{margin-top:30px;}
+.map-traffic input,.map-traffic textarea{border:0;outline:0;margin-bottom:20px;width:100%;max-width:100%}
+.map-traffic input.button{width:auto;border:0 ;background-color:#b10021;color:white;font-size:16px;padding:10px 20px;margin-bottom:0}
+.map-traffic textarea{min-height:140px}
+#allmap{width:100%;height:472px;margin-top:30px;margin-bottom:10px}
+#myweb-footer{margin-top:60px;border-top:3px solid #b10021;padding:20px 0;position:relative}
+@media only screen and (max-width:1000px){
+.myweb-header .myweb-header-nav{padding:0}
+.myweb-header .myweb-header-nav .container{width:100%}
+.travel #icons .icon-item span,.food #icons-food .icon-item span{display:none}
+}
+@media only screen and (max-width:760px){
+.travel #icons{margin-top:50px}
+.travel #icons .icon-item span{display:inline-block;margin:0 0 0 20px}
+.food #icons-food{margin-top:50px}
+.food #icons-food .icon-item span{display:inline-block;margin:0 0 0 20px}
+}

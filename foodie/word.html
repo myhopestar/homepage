@@ -1,0 +1,194 @@
+﻿<!Doctype html>
+<html>
+<head>
+	<title>盐城吃货休闲食品店</title>
+	<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+	<meta name="viewport"content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"href="themes/mytheme.min.css"/>
+	<link rel="stylesheet"href="themes/jquery.mobile.icons.min.css"/>
+	<link rel="stylesheet"href="js/jquery.mobile.structure-1.4.5.min.css"/>
+	<script src="../index/jquery-1.11.1.min.js"></script>
+	<script src="../index/jquery.mobile-1.4.5.min.js"></script>
+	<style type="text/css">
+		.btndelete {
+			float:left;
+			margin:20px 0 0 5px;
+			position:relative;
+			z-index:5;
+			font-size:16px;
+			font-family:Times New Roman;
+			font-weight:blod;
+			-moz-border-radius:8px;
+			-webkit-border-radius:8px;
+			border-radius:8px;
+			border:1px solid#4cdee8;
+			padding:9px 18px;
+			text-decoration:none;
+			background:-moz-linear-gradient(center top,#79bbff 16%,#20e1f7 89%);
+			background:-ms-linear-gradient(top,#79bbff 16%,#20e1f7 89%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff',endColorstr='#20e1f7');
+			background:-webkit-gradient(linear,left top,left bottom,color-stop(16%,#79bbff),color-stop(89%,#20e1f7));
+			background-color:#79bbff;
+			color:#0A14DA;
+			display:inline-block;
+			text-shadow:1px 1px 0px#7cceeb;
+			-webkit-box-shadow:inset 1px 1px 0px 0px#cae3fc;
+			-moz-box-shadow:inset 1px 1px 0px 0px#cae3fc;
+			box-shadow:inset 1px 1px 0px 0px#cae3fc
+		}
+		.btndelete:hover {
+			background:-moz-linear-gradient(center top,#20e1f7 16%,#79bbff 89%);
+			background:-ms-linear-gradient(top,#20e1f7 16%,#79bbff 89%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#20e1f7',endColorstr='#79bbff');
+			background:-webkit-gradient(linear,left top,left bottom,color-stop(16%,#20e1f7),color-stop(89%,#79bbff));
+			background-color:#20e1f7
+		}
+		.btndelete:active {
+			position:relative;
+			top:1px
+		}
+	</style>
+	<script>
+		var db;
+		$(function() {
+			var dbSize = 2 * 1024 * 1024;
+			db = openDatabase('wordstable', '', '', dbSize);
+			db.transaction(function(word) {
+				word.executeSql("CREATE TABLE IF NOT EXISTS word (id integer PRIMARY KEY,username char(50),wordtext text,wordtime datetime)")
+			});
+			wordlist();
+			$("#newword").on("click", addword);
+			function addword() {
+				$.mobile.changePage($("#addword"), {})
+			}
+			$("#addword").on("pageshow",
+			function() {
+				$("#usernames").val("");
+				$("#wordtext").val("");
+				$("#usernames").focus("")
+			});
+			$("#save").on("click", save);
+			function save() {
+				var username = $("#usernames").val();
+				var wordtext = $("#wordtext").val();
+				db.transaction(function(word) {
+					word.executeSql("INSERT INTO word(username,wordtext,wordtime) values(?,?,datetime('now','localtime'))", [username, wordtext],
+					function(word, result) {
+						$('.ui-dialog').dialog("close");
+						wordlist()
+					},
+					function(e) {
+						alert("新增留言错误：" + e.message)
+					})
+				})
+			}
+			$("#wordlist").on("click", "li", showwordlist);
+			function showwordlist() {
+				$("#username").html("");
+				$("#wordcontent").html("");
+				var wordvalue = parseInt($(this).attr("id"));
+				db.transaction(function(word) {
+					word.executeSql("SELECT id,username,wordtext,wordtime FROM word where id=?", [wordvalue],
+					function(word, result) {
+						if (result.rows.length > 0) {
+							for (var i = 0; i < result.rows.length; i++) {
+								item = result.rows.item(i);
+								$("#username").html('用户名：' + item["username"]);
+								$("#wordcontent").html('留言内容：' + item["wordtext"]);
+								$("#wordtime").html('留言时间：' + item["wordtime"])
+							}
+						}
+						$.mobile.changePage("#displayword", {})
+					},
+					function(e) {
+						alert("SELECT 语法出错了！" + e.message)
+					})
+				})
+			}
+			$("#deleteword").on("click", showdelbtn);
+			function showdelbtn() {
+				if ($("button").length <= 0) {
+					var deletebtn = $("<button class='btndelete'>delete</button>");
+					$("li:visible").before(deletebtn)
+				} else {
+					$("button").remove()
+				}
+			}
+			$("#word").on("click", ".btndelete",function() {
+				if (confirm("确认要删除留言吗？")) {
+					var wordsvalue = $(this).next("li").attr("id");
+					db.transaction(function(word) {
+						word.executeSql("DELETE FROM word WHERE id=?", [wordsvalue],
+						function(word, result) {
+							wordlist()
+						},
+						function(e) {
+							alert("DELETE语法出错了！" + e.message);
+							$("button").remove()
+						})
+					})
+				}
+			}) 
+			function wordlist() {
+				$("ul").empty();
+				var wordinfo = "";
+				db.transaction(function(word) {
+					word.executeSql("SELECT id,username,wordtext,wordtime FROM word", [],
+					function(word, result) {
+						if (result.rows.length > 0) {
+							for (var i = 0; i < result.rows.length; i++) {
+								item = result.rows.item(i);
+								wordinfo += "<li id=" + item["id"] + "><a href='#'><h3>用户名:  " + item["username"] + "</h3><p>留言:  " + item["wordtext"] + "</p></a></li>"
+							}
+						}
+						$("#wordlist").append(wordinfo);
+						$("#wordlist").listview('refresh')
+					},
+					function(e) {
+						alert("SELECT语法出错了！" + e.message)
+					})
+				})
+			}
+		});
+	</script>
+</head>
+<body>
+	<div data-role="page" data-title="留言页" id="word" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<a href="index.html" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+			<h2>盐城吃货休闲食品店</h2>
+		</div>
+		<div data-role="main" style="text-align:center;padding:20px 5px;">
+			<ul id="wordlist" data-role="listview" data-inset="true" style="text-align:center;"></ul>
+		</div>
+		<div data-role="footer" data-position="fixed" style="text-align:center;">
+			<a href="#" id="newword" data-icon="plus" style="float:left">新增留言</a>
+			<h2 style="display:inline; line-height:34px"></h2>
+			<a href="#" id="deleteword" data-icon="delete" style="float:right">删除留言</a>
+		</div>
+	</div>
+	<div data-role="dialog" id="addword">
+		<div data-role="header">
+			<h1>新增留言</h1>
+		</div>
+		<div data-role="main">
+			<input type="text" id="usernames" placeholder="用户名" />
+			<textarea cols="40" rows="8" id="wordtext" placeholder="留言内容"></textarea>
+			<hr/>
+			<a href="#" data-role="button" id="save">保存</a>
+		</div>
+	</div>
+	<div data-role="dialog" id="displayword">
+		<div data-role="header">
+			<h1 id="username">用户名</h1>
+		</div>
+		<div data-role="main">
+			<p id="wordcontent" style="text-align:center;">留言内容</p>
+		</div>
+		<div data-role="footer">
+			<p id="wordtime" style="text-align:center;">留言时间</p>
+		</div>
+	</div>
+</body>
+</html>
+<!--

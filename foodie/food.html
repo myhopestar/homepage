@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>盐城吃货休闲食品店</title>
+	<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+	<meta name="viewport"content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"href="themes/mytheme.min.css"/>
+	<link rel="stylesheet"href="themes/jquery.mobile.icons.min.css"/>
+	<link rel="stylesheet"href="js/jquery.mobile.structure-1.4.5.min.css"/>
+	<script src="../index/jquery-1.11.1.min.js"></script>
+	<script src="../index/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		var db;
+		var dbsize = 2 * 1024 * 1024;
+		db = openDatabase('shoplists', '', '', dbsize);
+		db.transaction(function(shop) {
+			shop.executeSql("CREATE TABLE IF NOT EXISTS shoplists (id integer PRIMARY KEY,shopname char(50),shoptype char(50),shopnumber integer)")
+		});
+		$(function() {
+			$("#chocolate #chocolatepostorder").on("click", chocolatesave);
+			function chocolatesave() {
+				var shopname = $('input[name="selectchocolate"]:checked').val();
+				var shoptype = $("select#chocolatetaste").val();
+				var shopnumber = $('#chocolatenumber').val();
+				db.transaction(function(shop) {
+					shop.executeSql("INSERT INTO shoplists(shopname,shoptype,shopnumber) values(?,?,?)", [shopname, shoptype, shopnumber],
+					function(shop, result) {
+						$.mobile.changePage($('#orderlist'), {
+							transition: 'slide'
+						})
+					},
+					function(e) {
+						alert("食品加入购物车错误，错误原因：" + e.message)
+					})
+				})
+			}
+			$("#bread #breadpostorder").on("click", breadsave);
+			function breadsave() {
+				var shopname = $('input[name="selectbread"]:checked').val();
+				var shoptype = $("select#breadtaste").val();
+				var shopnumber = $('#breadnumber').val();
+				db.transaction(function(shop) {
+					shop.executeSql("INSERT INTO shoplists(shopname,shoptype,shopnumber) values(?,?,?)", [shopname, shoptype, shopnumber],
+					function(shop, result) {
+						$.mobile.changePage($('#orderlist'), {
+							transition: 'slide'
+						})
+					},
+					function(e) {
+						alert("食品加入购物车错误，错误原因：" + e.message)
+					})
+				})
+			}
+			$("#cookie #cookiepostorder").on("click", cookiesave);
+			function cookiesave() {
+				var shopname = $('input[name="selectcookie"]:checked').val();
+				var shoptype = $("select#cookietaste").val();
+				var shopnumber = $('#cookienumber').val();
+				db.transaction(function(shop) {
+					shop.executeSql("INSERT INTO shoplists(shopname,shoptype,shopnumber) values(?,?,?)", [shopname, shoptype, shopnumber],
+					function(shop, result) {
+						$.mobile.changePage($('#orderlist'), {
+							transition: 'slide'
+						})
+					},
+					function(e) {
+						alert("食品加入购物车错误，错误原因：" + e.message)
+					})
+				})
+			}
+			$("#cake #cakepostorder").on("click", cakesave);
+			function cakesave() {
+				var shopname = $('input[name="selectcake"]:checked').val();
+				var shoptype = $("select#caketaste").val();
+				var shopnumber = $('#cakenumber').val();
+				db.transaction(function(shop) {
+					shop.executeSql("INSERT INTO shoplists(shopname,shoptype,shopnumber) values(?,?,?)", [shopname, shoptype, shopnumber],
+					function(shop, result) {
+						$.mobile.changePage($('#orderlist'), {
+							transition: 'slide'
+						})
+					},
+					function(e) {
+						alert("食品加入购物车错误，错误原因：" + e.message)
+					})
+				})
+			}
+		});
+		$(document).on("pageshow", "#orderlist",
+		function() {
+			shopList()
+		});
+		function deleteOrderList() {
+			if (confirm("确认要删除全部食品吗？")) {
+				db.transaction(function(shop) {
+					shop.executeSql("DELETE FROM shoplists", [],
+					function(shop, result) {
+						alert("你已清空购物车！");
+						shopList()
+					},
+					function(e) {
+						alert("DELETE语法出错了！" + e.message)
+					})
+				})
+			}
+		}
+		function shopList() {
+			$("#shoplist").empty();
+			var shopinfo = '<div class="ui-block-a ui-grid-th">食品名称</div><div class="ui-block-b ui-grid-th">食品类型/口味</div><div class="ui-block-c ui-grid-th">食品数量</div>';
+			db.transaction(function(shop) {
+				shop.executeSql("SELECT id,shopname,shoptype,shopnumber FROM shoplists", [],
+				function(shop, result) {
+					if (result.rows.length > 0) {
+						for (var i = 0; i < result.rows.length; i++) {
+							item = result.rows.item(i);
+							shopinfo += "<div class='ui-block-a ui-grid-td'>" + item["shopname"] + "</div><div class='ui-block-b ui-grid-td'>" + item["shoptype"] + "</div><div class='ui-block-c ui-grid-td'>" + item["shopnumber"] + "</div>"
+						}
+					}
+					$("#shoplist").append(shopinfo);
+					$("#shoplist").listview("refresh")
+				},
+				function(e) {
+					alert("SELECT语法出错了！" + e.message)
+				})
+			})
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" data-title="第一页" id="first" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="true">
+			<a href="index.html" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+			<h2>盐城吃货休闲食品店</h2>
+		</div>
+		<div data-role="main" style="text-align:center;padding-top:60px;">
+			<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="搜索食品" style="margin-top:15px">
+				<li>
+					<a href="#chocolate">
+						<img src="images/chocolate.png" />
+						<h3>巧克力</h3>
+						<p>德芙丝牛奶巧克力、凯亚巧克力、瑞士果仁夹心牛奶巧克力、士力架花生夹心巧克力</p>
+					</a>
+					<a href="#chocolate" data-icon="gear"></a>
+				</li>
+				<li>
+					<a href="#bread">
+						<img src="images/bread.png" />
+						<h3>面包</h3>
+						<p>达利园法式软面包、冠达大麦若叶吐司面包、五谷煮意手撕面包、紫米面包</p>
+					</a>
+					<a href="#bread" data-icon="gear"></a>
+				</li>
+				<li>
+					<a href="#cookie">
+						<img src="images/cookie.png" />
+						<h3>饼干</h3>
+						<p>大润谷丹麦风味曲奇饼干、康恩贝手指饼干、三只松鼠蔓越莓曲奇饼干、万士发果酱夹心饼干</p>
+					</a>
+					<a href="#cookie" data-icon="gear"></a>
+				</li>
+				<li>
+					<a href="#cake">
+						<img src="images/cake.png" />
+						<h3>糕点</h3>
+						<p>北京稻香村京八件枣花酥、郎丽蒸三明治蛋糕、台湾红豆麻薯Q饼、盼盼梅尼耶干蛋糕</p>
+					</a>
+					<a href="#cake" data-icon="gear"></a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+	<div data-role="page" data-title="盐城吃货休闲食品店-巧克力" id="chocolate" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="true">
+			<a href="#first" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+			<h2>盐城吃货休闲食品店</h2>
+		</div>
+		<div data-role="main" style="padding-top:60px;">
+			请选择巧克力类型：
+			<br/>
+			<select name="selecttaste" id="chocolatetaste" data-native-menu="false">
+				<option value="清凉薄荷">清凉薄荷</option>
+				<option value="香橙味">香橙味</option>
+				<option value="丝滑牛奶味">丝滑牛奶味</option>
+			</select>
+			<fieldset data-role="controlgroup">
+				<legend>请选择巧克力：</legend>
+				<input type="radio" name="selectchocolate" id="chocolate1" value="德芙丝巧克力" checked/>
+				<label for="chocolate1">德芙丝巧克力</label>
+				<input type="radio" name="selectchocolate" id="chocolate2" value="凯亚巧克力" />
+				<label for="chocolate2">凯亚巧克力</label>
+				<input type="radio" name="selectchocolate" id="chocolate3" value="瑞士果仁夹心巧克力" />
+				<label for="chocolate3">瑞士果仁夹心巧克力</label>
+				<input type="radio" name="selectchocolate" id="chocolate4" value="士力架花生夹心巧克力" />
+				<label for="chocolate4">士力架花生夹心巧克力</label>
+			</fieldset>
+			请选择巧克力:
+			<br/>
+			<input type="range" name="number" id="chocolatenumber" value="1" min="0" max="100" data-highlight="true" />
+			<input type="button" id="chocolatepostorder" value="提交订单" />
+		</div>
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+	<div data-role="page" data-title="盐城吃货休闲食品店-面包" id="bread" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="true">
+			<h2>盐城吃货休闲食品店</h2>
+			<a href="#first" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+		</div>
+		<div data-role="main" style="padding-top:60px;">
+			请选择面包类型：
+			<br/>
+			<select name="selecttaste" id="breadtaste" data-native-menu="false">
+				<option value="沙拉味">沙拉味</option>
+				<option value="芝士味">芝士味</option>
+				<option value="巧克力味">巧克力味</option>
+			</select>
+			<fieldset data-role="controlgroup">
+				<legend>请选择面包：</legend>
+				<input type="radio" name="selectbread" id="bread1" value="达利园法式软面包" checked/>
+				<label for="bread1">达利园法式软面包</label>
+				<input type="radio" name="selectbread" id="bread2" value="冠达大麦若叶吐司面包" />
+				<label for="bread2">冠达大麦若叶吐司面包</label>
+				<input type="radio" name="selectbread" id="bread3" value="五谷煮意手撕面包" />
+				<label for="bread3">五谷煮意手撕面包</label>
+				<input type="radio" name="selectbread" id="bread4" value="紫米面包" />
+				<label for="bread4">紫米面包</label>
+			</fieldset>
+			请选择面包数量:
+			<br/>
+			<input type="range" name="number" id="breadnumber" value="1" min="0" max="100" data-highlight="true" />
+			<input type="button" id="breadpostorder" value="提交订单" />
+		</div>
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+	<div data-role="page" data-title="盐城吃货休闲食品店-饼干" id="cookie" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="true">
+			<a href="#first" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+			<h2>盐城吃货休闲食品店</h2>
+		</div>
+		<div data-role="main" style="padding-top:60px;">
+			请选择饼干类型：
+			<br/>
+			<select name="selecttaste" id="cookietaste" data-native-menu="false">
+				<option value="玫瑰花味">玫瑰花味</option>
+				<option value="酸奶味">酸奶味</option>
+				<option value="抹茶味">抹茶味</option>
+			</select>
+			<fieldset data-role="controlgroup">
+				<legend>请选择饼干：</legend>
+				<input type="radio" name="selectcookie" id="cookie1" value="大润谷丹麦风味曲奇饼干" checked/>
+				<label for="cookie1">大润谷丹麦风味曲奇饼干</label>
+				<input type="radio" name="selectcookie" id="cookie2" value="康恩贝手指饼干" />
+				<label for="cookie2">康恩贝手指饼干</label>
+				<input type="radio" name="selectcookie" id="cookie3" value="三只松鼠蔓越莓曲奇饼干" />
+				<label for="cookie3">三只松鼠蔓越莓曲奇饼干</label>
+				<input type="radio" name="selectcookie" id="cookie4" value="万士发果酱夹心饼干" />
+				<label for="cookie4">万士发果酱夹心饼干</label>
+			</fieldset>
+			请选择饼干:
+			<br/>
+			<input type="range" name="number" id="cookienumber" value="1" min="0" max="100" data-highlight="true" />
+			<input type="button" id="cookiepostorder" value="提交订单" />
+		</div>
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+	<div data-role="page" data-title="盐城吃货休闲食品店-糕点" id="cake" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="true">
+			<h2>盐城吃货休闲食品店</h2>
+			<a href="#first" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回</a>
+		</div>
+		<div data-role="main" style="padding-top:60px;">
+			请选择糕点类型：
+			<br/>
+			<select name="selecttaste" id="caketaste" data-native-menu="false">
+				<option value="巧克力味">巧克力味</option>
+				<option value="戚风味 ">戚风味</option>
+				<option value="香橙味">香橙味</option>
+			</select>
+			<fieldset data-role="controlgroup">
+				<legend>请选择糕点：</legend>
+				<input type="radio" name="selectcake" id="cake1" value="北京稻香村京八件枣花酥" checked/>
+				<label for="cake1">北京稻香村京八件枣花酥</label>
+				<input type="radio" name="selectcake" id="cake2" value="郎丽蒸三明治蛋糕" />
+				<label for="cake2">郎丽蒸三明治蛋糕</label>
+				<input type="radio" name="selectcake" id="cake3" value="台湾红豆麻薯Q饼" />
+				<label for="cake3">台湾红豆麻薯Q饼</label>
+				<input type="radio" name="selectcake" id="cake4" value="盼盼梅尼耶干蛋糕" />
+				<label for="cake4">盼盼梅尼耶干蛋糕</label>
+			</fieldset>
+			请选择糕点数量:
+			<br/>
+			<input type="range" name="number" id="cakenumber" value="1" min="0" max="100" data-highlight="true" />
+			<input type="button" id="cakepostorder" value="提交订单" />
+		</div>
+		<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+	<div data-role="page" data-title="订单页" id="orderlist" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<a href="index.html" data-icon="arrow-l" data-iconpos="left" data-ajax="false">返回首页</a>
+			<a href="#first" data-icon="arrow-r" data-iconpos="right" data-ajax="false">继续购物</a>
+			<h2>盐城吃货休闲食品店</h2>
+		</div>
+		<div data-role="main" style="text-align:center;padding-top:10px;">
+			<style>
+				.ui-grid-th{border:1px solid#2b7ff5;background-color:#10f7db;padding:5px
+				0;font-weight:bold}.ui-grid-td{border:1px solid#2b7ff5;background-color:#97e8d9}
+			</style>
+			<a href="#" data-role="button" data-inline="true" onClick="deleteOrderList();" style="float:left;margin-left:10px">清空购物车</a>
+			<a href="javascript:void(0)" data-role="button" data-inline="true" style="float:right">前往付款</a>
+			<div class="ui-grid-b" data-role="listview" id="shoplist" style="clear:both;margin:5px 10px 0;border-radius:5px;"></div>
+		</div>
+		<div data-role="footer" data-position="fixed" style="text-align:center;">联系电话：<script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></div>
+	</div>
+</body>
+</html>
+<!--
+
+
+        
