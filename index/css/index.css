@@ -5,6 +5,19 @@ body{ position: relative; overflow-x:hidden;}
 #introduction,#work,#project,#contact{ padding-top:50px; overflow:auto;}
 #introduction,#work,#project,#network,#web_developer,#contact h1{ text-align:center; color: #fff;}
 #netTab,#webTable{ margin:0 auto;}
+@media screen and (min-height:768px) {
+	body{ font-size:16px;}
+	h1{ font-size:40px;}
+	h3{ font-size:32px;}
+	h4{ font-size:30px;}
+	h7{ font-size:20px;}
+	#work{ padding-top:100px; overflow:hidden;}
+	#network,#web_developer{ padding-top:80px; overflow:hidden;}
+	#introduction,#work,#project,#contact{ padding-top:100px; overflow:auto;}
+	#work #accordion{ margin-top:50px;}
+	#work #accordion h7{ margin:7px 0;}
+	#project #myTab{ margin-bottom:50px; margin-top:20px;}
+}
 /* nav */
 nav{ display:none;}
 .navbar-inverse{ background-color:#084F56}
@@ -43,6 +56,7 @@ nav{ display:none;}
 #contact{ background-color: #66FF33;}
 #contact h1{ margin-bottom:70px;}
 #contact .conicon img{ width:86px; height:86px; margin:0 auto; position:absolute; right:0; left:0; top:0; bottom:0; animation:imganimation 1.5s linear 2s infinite; -o-animation:imganimation 1.5s linear 2s infinite; -moz-animation:imganimation 1.5s linear 2s infinite; -webkit-animation:imganimation 1.5s linear 2s infinite;}
+#contact .conicon img:last-child{ animation-delay:1s; -o-animation-delay:1s; -moz-animation-delay:1s; -webkit-animation-delay:1s;}
 @keyframes imganimation
 {
 	0%   { bottom:0;}
