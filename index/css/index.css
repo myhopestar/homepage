@@ -1,0 +1,99 @@
+@charset "utf-8";
+body{ position: relative; overflow-x:hidden;}
+/* all */
+#work,#network,#web_developer{ padding-top:50px; overflow:hidden;}
+#introduction,#work,#project,#contact{ padding-top:50px; overflow:auto;}
+#introduction,#work,#project,#network,#web_developer,#contact h1{ text-align:center; color: #fff;}
+#netTab,#webTable{ margin:0 auto;}
+@media screen and (min-height:768px) {
+	body{ font-size:16px;}
+	h1{ font-size:40px;}
+	h3{ font-size:32px;}
+	h4{ font-size:30px;}
+	h7{ font-size:20px;}
+	#work{ padding-top:100px; overflow:hidden;}
+	#network,#web_developer{ padding-top:80px; overflow:hidden;}
+	#introduction,#work,#project,#contact{ padding-top:100px; overflow:auto;}
+	#work #accordion{ margin-top:50px;}
+	#work #accordion h7{ margin:7px 0;}
+	#project #myTab{ margin-bottom:50px; margin-top:20px;}
+}
+/* nav */
+nav{ display:none;}
+.navbar-inverse{ background-color:#084F56}
+.navbar>.container-fluid>.collapse>ul>li>a[href="#production"]{ color:#00FFFF;}
+/* introduction */
+#introduction{ background-color: #1E88E5;}
+#introduction h1{ margin-bottom:70px;}
+#introduction .intro-icon img{ transform: translate(0,0); -moz-transform: translate(0,0); -ms-transform: translate(0,0); -o-transform: translate(0,0); -webkit-transform: translate(0,0); transition: all 1s; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s;}
+#introduction .intro-icon:hover img{  transform: translate(0,-10px); -moz-transform: translate(0,-10px); -ms-transform: translate(0,-10px); -o-transform: translate(0,-10px); -webkit-transform: translate(0,-10px);}
+#introduction .intro-icon p{ color:#000099; transform: translate(0,0); -moz-transform: translate(0,0); -ms-transform: translate(0,0); -o-transform: translate(0,0); -webkit-transform: translate(0,0); transition: all 1s; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s;}
+#introduction .intro-icon:hover p{ color:#FFFFFF; transform: translate(0,10px); -moz-transform: translate(0,10px); -ms-transform: translate(0,10px); -o-transform: translate(0,10px); -webkit-transform: translate(0,10px);}
+#introduction img{ height:64px; width:64px; margin-bottom:10px;}
+#introduction .intro-text{ clear:both; padding-top:40px;}
+#introduction .intro-text p{ color:#000099;}
+#introduction .intro-text p:hover{ color:#FFFFFF;}
+/* work */
+#work{ background-color: #673ab7;}
+#work .panel-group .panel .panel-heading h4{ text-decoration:none;}
+#work .panel-group .panel .panel-heading h4 a:hover{ color:#0000CC; text-decoration:none;}
+#work .panel-group .panel .panel-body{ color:#3333FF;}
+#work #accordion .panel h7{ padding-bottom:10px; display:block; font-weight:bold;}
+#work #accordion div p:hover{ color:#07F6D7;}
+/* project */
+#project{ background-color: #ff9800;}
+#myTabContent>div{ padding-top:10px;}
+#myTabContent>div img{ height:70%; border-radius:10px; box-shadow:5px 5px 4px #ff7722; transform:rotateY(0deg); -webkit-transform:rotateY(0deg); -moz-transform:rotateY(0deg); transition: all 2s; -webkit-transition: all 2s; -moz-transition: all 2s; -o-transition: all 2s;}
+#myTabContent>div img:hover{ transform:rotateY(360deg); -webkit-transform:rotateY(360deg); -moz-transform:rotateY(360deg);  -ms-transform:rotateY(360deg); -o-transform:rotateY(360deg);}
+#myTabContent>div p{ transform: translate(0,0); -moz-transform: translate(0,0); -ms-transform: translate(0,0); -o-transform: translate(0,0); -webkit-transform: translate(0,0); transition: all 1s; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s;}
+#myTabContent>div p:hover{ color:#CC3333; transform: translate(10px,0); -moz-transform: translate(10px,0); -ms-transform: translate(10px,0); -o-transform: translate(10px,0); -webkit-transform: translate(10px,0);}
+/* network */
+#network{ background-color: #00bcd4;}
+/* web_developer */
+#web_developer{ background-color: #CCFFCC;}
+#netTabData{ display:none;}
+/* contact */
+#contact{ background-color: #66FF33;}
+#contact h1{ margin-bottom:70px;}
+#contact .conicon img{ width:86px; height:86px; margin:0 auto; position:absolute; right:0; left:0; top:0; bottom:0; animation:imganimation 1.5s linear 2s infinite; -o-animation:imganimation 1.5s linear 2s infinite; -moz-animation:imganimation 1.5s linear 2s infinite; -webkit-animation:imganimation 1.5s linear 2s infinite;}
+#contact .conicon img:last-child{ animation-delay:1s; -o-animation-delay:1s; -moz-animation-delay:1s; -webkit-animation-delay:1s;}
+@keyframes imganimation
+{
+	0%   { bottom:0;}
+	25%  { bottom::10px;}
+	50%  { bottom:0;}
+	75%  { top:10px;}
+	100% { top:0;}
+}
+@-o-keyframes imganimation
+{
+	0%   { bottom:0;}
+	25%  { bottom::10px;}
+	50%  { bottom:0;}
+	75%  { top:10px;}
+	100% { top:0;}
+}
+@-moz-keyframes imganimation
+{
+	0%   { bottom:0;}
+	25%  { bottom::10px;}
+	50%  { bottom:0;}
+	75%  { top:10px;}
+	100% { top:0;}
+}
+@-webkit-keyframes imganimation
+{
+	0%   { bottom:0;}
+	25%  { bottom::10px;}
+	50%  { bottom:0;}
+	75%  { top:10px;}
+	100% { top:0;}
+}
+#contact .conicon p{ text-align:center; margin-top:105px; color:#009900;}
+#contact .conicon p:hover,#contact .context p:hover{ color:#FFFFFF;}
+#contact .context{ clear:both; padding-top:20px;}
+#contact .context p{ text-align:center; color:#009900;}
+/* production */
+#production>.modal-dialog>.modal-content>.modal-header>.modal-title{ display:inline-block;}
+#production .modal-dialog .modal-content .modal-body a{ display:block; margin-bottom:5px;}
+#production .modal-dialog .modal-content .modal-body a:hover{ text-decoration:none; color:#23E4CA;}

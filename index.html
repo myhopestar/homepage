@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>邢晟乾的主页</title>
+	<link href="index/css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 9]>
+		<script src="index/js/html5shiv.js"></script>
+		<script src="index/js/respond.min.js"></script>
+	<![endif]-->
+	<link href="index/css/index.css" rel="stylesheet" type="text/css" />
+	<link href="index/css/title.css" rel="stylesheet" type="text/css" />
+	<link href="index/css/loading.css" rel="stylesheet" type="text/css" />
+	<script src="index/js/jquery.js"></script>
+	<!--[if lt IE]>
+		<style>
+			#loading{ width:100%; height:100%; position:fixed; top:0; left:0; z-index:100; background:#fff;}
+			#loading .pic{ width:64px; height:64px; background:url(index/images/loading.gif); position:absolute; top:0; bottom:0; left:0; right:0; margin:auto;}
+			#loading .ele-wrapper{ display:none;}
+		</style>
+	<![endif]-->
+	<script src="index/js/loading.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+	<div id="loading">
+		<div class="ele-container">
+			<div class="pic"></div><!-- pic -->
+			<div class="ele-wrapper">
+				<div class="ele-tail"></div><!-- ele-tail -->
+				<div class="ele-body">
+					<div class="ele-head">
+						<div class="ele-eyebrows"></div><!-- ele-eyebrows -->
+						<div class="ele-eyes"></div><!-- ele-eyes -->
+						<div class="ele-mouth"></div><!-- ele-mouth -->
+						<div class="ele-fang-front"></div><!-- ele-fang-front -->
+						<div class="ele-fang-back"></div><!-- ele-fang-back -->
+						<div class="ele-ear"></div><!-- ele-ear -->
+					</div><!-- ele-head -->
+				</div><!-- ele-body -->
+				<div class="ele-leg-1 ele-leg-back">
+					<div class="ele-foot"></div><!-- ele-foot -->
+				</div><!-- ele-leg-back -->
+				<div class="ele-leg-2 ele-leg-front">
+					<div class="ele-foot"></div><!-- ele-foot -->
+				</div><!-- ele-leg-front -->
+				<div class="ele-leg-3 ele-leg-back">
+					<div class="ele-foot"></div><!-- ele-foot -->
+				</div><!-- ele-leg-back -->
+				<div class="ele-leg-4 ele-leg-front">
+					<div class="ele-foot"></div><!-- ele-foot -->
+				</div><!-- ele-leg-front -->
+			</div><!-- ele-wrapper -->
+		</div><!-- ele-container -->
+	</div><!-- loading -->
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">邢晟乾的主页</a>
+			</div><!-- navbar-header -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#introduction"><span class="glyphicon glyphicon-user"></span>&nbsp;个人简介</a></li>
+					<li><a href="#work"><span class="glyphicon glyphicon-briefcase">&nbsp;工作经历</a></li>
+					<li><a href="#project"><span class="glyphicon glyphicon-credit-card">&nbsp;项目经历</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list-alt">&nbsp;个人技能 <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#network">技术支持工程师</a></li>
+							<li><a href="#web_developer">网络工程师</a></li>
+						</ul>
+					</li>
+					<li><a href="#contact"><span class="glyphicon glyphicon-phone">&nbsp;联系方式</a></li>
+					<li><a href="#production" data-toggle="modal" data-target="#production"><span class="glyphicon glyphicon-paperclip">&nbsp;WEB作品链接</a></li>
+				</ul>
+			</div><!-- navbar-collapse -->
+		</div><!-- container-fluid -->
+	</nav>
+
+	<div id="introduction" class="container-fluid">
+		<h1><a class="titleactive" href="javascript:void(0)">个人简介</a></h1>
+		<div class="intro-icon col-md-2 col-md-offset-2 col-xs-4 col-xs-offset-2">
+			<img src="index/images/intro-education.png" alt="学历" />
+			<p><b>学历</b><br />本科</p>
+		</div><!-- intro-icon -->
+		<div class="intro-icon col-md-2 col-xs-4">
+			<img src="index/images/intro-age.png" alt="年龄" />
+			<p><b>年龄</b><br />30</p>
+		</div><!-- intro-icon -->
+		<div class="intro-icon col-md-2 col-md-offset-0 col-xs-4 col-xs-offset-2">
+			<img src="index/images/intro-birthplace.png" alt="籍贯" />
+			<p><b>籍贯</b><br />江苏省盐城市</p>
+		</div><!-- intro-icon -->
+		<div class="intro-icon col-md-2 col-xs-4">
+			<img src="index/images/intro-status.png" alt="状态" />
+			<p><b>状态</b><br />在职</p>
+		</div><!-- intro-icon -->
+		<div class="intro-text">
+			<p><span>2015年7月毕业于延安大学西安创新学院计算机科学与技术专业</span></p>
+			<p><span>2015年3月至今一直从事网络方面的工作</span></p>
+			<p><span>主导过多个网络的规划、设计、测试等工作</span></p>
+			<p><span>有丰富的大型网络管理、优化经验</span></p>
+			<p><span>掌握一定的HDML、JavaScript、JQuery、ASP等编程基础</span></p>
+		</div><!-- intro-text -->
+	</div><!-- introduction -->
+	
+	<div id="work" class="container-fluid">
+		<h1><a href="javascript:void(0)">工作经历</a></h1>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">广达集团达富电脑有限公司</a></h4>
+				</div><!-- panel-heading -->
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-body">
+						<h7>2015年3月25日-2017年4月17日</h7>
+						<p>处理生产线上出现的网络异常</p>
+						<p>负责公司服务器、存储设备的运维</p>
+						<p>根据生产线的需求调整网络数据流的走向</p>
+						<p>通过活动目录管理生产线上的计算机</p>
+					</div><!-- panel-body -->
+				</div><!-- panel-collapse -->
+			</div><!-- panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">上海爱汇健康科技有限公司（兼职）</a></h4>
+				</div><!-- panel-heading -->
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<h7>2017年5月8日-2017年6月15日</h7>
+						<p>完成公司内部网络的规划设计及配置</p>
+						<p>参与项目中无线网络的规划、设计、管理和排错</p>
+						<p>负责公司内部服务器、打印机等设备的规划和运维</p>
+					</div><!-- panel-body -->
+				</div><!-- panel-collapse -->
+			</div><!-- panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">中航工业集团上海天马微电子股份有限公司</a></h4>
+				</div><!-- panel-heading -->
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<h7>2017年7月10日2019年8月23日</h7>
+						<p>负责上海天马研发楼、制造楼、OLED办公网络的运维和管理</p>
+						<p>参与上海天马电话系统升级、日常问题处理</p>
+						<p>主导完成上海新建综合楼、厦门一卡通网络规划和配置</p>
+						<p>参与公司堡垒机、仓库WMS、视频会议升级等项目</p>
+						<p>参与公司ISO 27001标准的认证</p>
+					</div><!-- panel-body -->
+				</div><!-- panel-collapse -->
+			</div><!-- panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">58集团上海瑞庭网络技术有限公司</a></h4>
+				</div><!-- panel-heading -->
+				<div id="collapseFour" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<h7>2019年8月27日至今</h7>
+						<p>负责58安居客总部办公网络的运维和管理</p>
+						<p>主导安居客总部搬家后新办公地点网络的设计、配置及测试</p>
+						<p>主导完成安居客与爱房、巧房网络的融合及后续网络优化工作</p>
+						<p>独立完成IPV6、弱网测试环境的搭建</p>
+						<p>配合北京集团总部完成SDWAN、无线投屏、portal认证等项目</p>
+					</div><!-- panel-body -->
+				</div><!-- panel-collapse -->
+			</div><!-- panel -->
+		</div><!-- panel-group -->
+	</div><!-- work -->
+	
+	<div id="project" class="container-fluid">
+		<h1><a href="javascript:void(0)">项目经历</a></h1>
+		<ul id="myTab" class="nav nav-tabs">
+			<li class="active"><a href="#dongfang" data-toggle="tab">东方医院南院无线网络搭建</a></li>
+			<li><a href="#aihui" data-toggle="tab">爱汇内网搭建</a></li>
+			<li><a href="#jiangwan" data-toggle="tab">江湾医院无线网络搭建</a></li>
+			<li><a href="#zhongxi" data-toggle="tab">中西结合医院无线网络搭建</a></li>
+			<li><a href="#baoleiji" data-toggle="tab">天马堡垒机项目</a></li>
+			<li><a href="#dianhua" data-toggle="tab">天马电话系统升级</a></li>
+			<li><a href="#shiping" data-toggle="tab">天马视频会议升级</a></li>
+			<li><a href="#yikatong" data-toggle="tab">天马一卡通项目</a></li>
+			<li><a href="#anjuke" data-toggle="tab">安居客总部办公网络迁移及优化</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="dongfang">
+				<div class="col-md-5">
+					<img src="index/images/project-dongfang.jpg" class="img-responsive center-block" alt="上海东方医院南院无线网络搭建" />
+				</div><!-- col-md-5 -->
+				<div class="col-md-7">
+					<h3>2017.6.5-2017.6.6主导完成上海东方医院南院无线网络搭建</h3>
+					<br />
+					<p class="text-left">● 采用FW+LSW+AP的组网方案方式；</p>
+					<p class="text-left">● FW、LSW和AP均由云平台纳管；</p>
+					<p class="text-left">● 通过云平台配置FW option 148 给下面的LSW、AP分配管理IP地址；</p>
+					<p class="text-left">● 用户的业务网关在配置在FW上，给终端分配IP地址，AP为二层桥接转发模式。</p>
+				</div><!-- col-md-7 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="aihui">
+				<div class="col-md-7">
+					<h3>主导完成上海爱汇健康科技有限公司内网搭建</h3>
+					<br />
+					<p class="text-left">● 完成上海爱汇健康科技有限公司有线网、无线网的规划和搭建；</p>
+					<p class="text-left">● 完成爱汇内部服务器的安装、上架和管理；</p>
+					<p class="text-left">● 处理爱汇内部打印机等设备的联网规划。</p>
+				</div><!-- col-md-7 -->
+				<div class="col-md-5">
+					<img src="index/images/project-aihui.jpg" class="img-responsive center-block" alt="上海爱汇健康科技有限公司内网搭建" />				
+				</div><!-- col-md-5 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="jiangwan">
+				<div class="col-md-5">
+					<img src="index/images/project-jiangwan.jpg" class="img-responsive center-block" alt="上海江湾医院无线网搭建" />				
+				</div><!-- col-md-5 -->
+				<div class="col-md-7">
+					<h3>2017.5.10-2017.5.11主导完成上海江湾医院无线网搭建</h3>
+					<br />
+					<p class="text-left">● 采用三层AC旁挂进行组网；</p>
+					<p class="text-left">● 共使用46个AP4050DN-E和12个AP5030DN-S完成江湾医院住院部共六层楼无线信号的覆盖。</p>
+				</div><!-- col-md-7 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="zhongxi">
+				<div class="col-md-7">
+					<h3>完成上海中西结合医院无线网络搭建</h3>
+					<br />
+					<p class="text-left">● 采用FW+LSW+AP的组网方案方式；</p>
+					<p class="text-left">● FW、LSW和AP均由云平台纳管；</p>
+					<p class="text-left">● 通过云平台配置FW option 148 给下面的LSW、AP分配管理IP地址；</p>
+					<p class="text-left">● 用户的业务网关在配置在FW上，给终端分配IP地址，AP为二层桥接转发模式。</p>
+				</div><!-- col-md-7 -->
+				<div class="col-md-5">
+					<img src="index/images/project-zhongxi.jpg" class="img-responsive center-block" alt="上海中西结合医院无线网络搭建" />				
+				</div><!-- col-md-5 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="baoleiji">
+				<div class="col-md-5">
+					<img src="index/images/project-baoleiji.jpg" class="img-responsive center-block" alt="上海天马微电子股份有限公司堡垒机项目" />
+				</div><!-- col-md-5 -->
+				<div class="col-md-7">
+					<h3>参与上海天马微电子股份有限公司堡垒机项目</h3>
+					<br />
+					<p class="text-left">● 参与天马集团堡垒机项目的实施和验收</p>
+					<p class="text-left">● 使用堡垒机完成相关网络设备的管理、配置和审计工作</p>
+					<p class="text-left">● 使用堡垒机完成定期网络设备的配置保存及报表功能</p>
+				</div><!-- col-md-7 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="dianhua">
+				<div class="col-md-7">
+					<h3>参与上海天马微电子股份有限公司电话系统升级项目</h3>
+					<br />
+					<p class="text-left">● 淘汰上海天马内部所以模拟话机，更换为Alcatel 8001和Alcatel 8028话机</p>
+					<p class="text-left">● 配合Alcatel厂商完成网络中语音VLAN的部署、电话系统的切换</p>
+					<p class="text-left">● 完成部分话机配置文件的导入</p>
+					<p class="text-left">● 处理切换后系统的维护及故障的处理</p>
+				</div><!-- col-md-7 -->
+				<div class="col-md-5">
+					<img src="index/images/project-dianhua.jpg" class="img-responsive center-block" alt="上海天马微电子股份有限公司电话系统升级项目" />
+				</div><!-- col-md-5 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="shiping">
+				<div class="col-md-5">
+					<img src="index/images/project-shiping.jpg" class="img-responsive center-block" alt="上海天马微电子股份有限公司视频会议系统升级项目" />
+				</div><!-- col-md-5 -->
+				<div class="col-md-7">
+					<h3>参与上海天马微电子股份有限公司视频会议系统升级项目</h3>
+					<br />
+					<p class="text-left">● 原POLYCOM HDX 8000拨号进入CISCO视频会议系统</p>
+					<p class="text-left">● 视频会议室装潢及问题反馈</p>
+					<p class="text-left">● CISCO MX800和网真会议设备的测试及问题反馈</p>
+					<p class="text-left">● 新视频会议系统的日常维护及技术支持</p>
+				</div><!-- col-md-7 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="yikatong">
+				<div class="col-md-7">
+					<h3>2017.12.4-12.17主导完成厦门天马微电子股份有限公司一卡通项目</h3>
+					<br />
+					<p class="text-left">● 因厦门天马存在门禁、考勤和监控网络与集团网络相互独立，原网络中设备无标签进行标识等问题。个人于2017年12月4日支援厦门天马。</p>
+					<p class="text-left">● 了解当地网络架构后优化原一卡通网络的切换方案，通过MAC地址追踪来配置原设备和新设备的切换。完成后两个网络物理连接、逻辑隔离</p>
+					<p class="text-left">● 原计划新增17台交换机，优化方案后仅使用3台交换机，极大地降低了项目成本</p>
+					<p class="text-left">● 原计划一卡通网络切换配置用时24天，个人优化方案后仅用12天。项目完成后网络运行稳定无异常</p>
+				</div><!-- col-md-7 -->
+				<div class="col-md-5">
+					<img src="index/images/project-yikatong.jpg" class="img-responsive center-block" alt="厦门天马微电子股份有限公司一卡通项目" />
+				</div><!-- col-md-5 -->
+			</div><!-- tab-pane -->
+			<div class="tab-pane fade" id="anjuke">
+				<div class="col-md-5">
+					<img src="index/images/project-anjuke.jpg" class="img-responsive center-block" alt="安居客总部办公网络搬迁及优化" />
+				</div><!-- col-md-5 -->
+				<div class="col-md-7">
+					<h3>安居客总部办公网络迁移及优化</h3>
+					<br />
+					<p class="text-left">● 因安居客总部办公地点更换，对安居客办公网络进行迁移并优化</p>
+					<p class="text-left">● 使用标准的三层网络架构解决之前网络交换机层层级联的问题</p>
+					<p class="text-left">● 使用动态路由协议替换原先的静态路由，提升了网络的高可用性</p>
+					<p class="text-left">● 使用动态路由选路策略替换原先大量使用的策略路由，大大降低了网络的负载和延时</p>
+				</div><!-- col-md-7 -->
+			</div><!-- tab-pane -->
+		</div><!-- tab-content -->
+	</div><!-- project -->
+	
+	<div id="network" class="container-fluid">
+		<h1><a href="javascript:void(0)">技术支持工程师</a></h1>
+		<div id="netTab"></div><!-- netTab -->
+		<div id="netTabData">
+			路由 RIP	3.6%
+			路由 EIGRP	6.4%
+			路由 OSPF	9.0%
+			路由 ISIS	1.8%
+			路由 BGP	3.2%
+			路由 PBR	2.7%
+			路由 HSRP VRRP GLBP	3.3%
+			交换 VTP	8.0%
+			交换 VLAN	19.9%
+			交换 STP	12.1%
+			安全 VPN	5.0%
+			安全 port security	4.5%
+			安全 dhcp snooping	5.8%
+			安全 root guard	4.7%
+			其他 QOS	2.9%
+			其他 wireless	4.3%
+			其他 VOIP	2.8%
+		</div><!-- netTabData -->
+	</div><!-- network -->
+	<div id="web_developer" class="container-fluid">
+		<h1><a href="javascript:void(0)">网络工程师</a></h1>
+		<div id="webTable"></div><!-- webTable -->
+	</div><!-- web_developer -->
+	
+	<div id="contact" class="container-fluid">
+		<h1><a href="javascript:void(0)">联系方式</a></h1>
+		<div class="conicon col-md-2 col-md-offset-3 col-xs-4 col-xs-offset-2">
+			<img src="index/images/contact-tel.png" alt="电话号码" />
+			<p><b>电话</b><br /><span><script>document.write( 'a1b5c00d0e54f8g735h'.replace(/\D/g, '') );</script></span></p>
+		</div><!-- conicon -->
+		<div class="conicon col-md-2 col-md-offset-2 col-xs-4">
+			<img src="index/images/contact-mail.png" alt="电子邮箱" />
+			<p><b>邮箱</b><br /><span><script>document.write( ['com', 'qq', '402443878'].reverse().join('.').replace('.', '@') );</script></span></p>
+		</div><!-- conicon -->
+		<div class="context">
+			<p><span>一个喜欢传统文化的大男孩</span></p>
+			<p><span>有着天马行空的想象力</span></p>
+			<p><span>还曾参加过管理和财务的相关培训</span></p>
+		</div><!-- context -->
+	</div><!-- contact -->
+	
+	<div class="modal fade" id="production">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">WEB作品链接</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div><!-- modal-header -->
+				<div class="modal-body">
+					<center><a href="company/index.html" target="_blank">休闲食品网站首页</a></center>
+					<center><a href="foodie/index.html" target="_blank">手机版休闲食品网站</a></center>
+					<center><a href="hometown/index.html" target="_blank">响应式布局网站美丽盐城</a></center>
+					<center><a href="waterfall/index.html" target="_blank">原生JS瀑布流作品-美丽盐城</a></center>
+					<center><a href="card/index.html" target="_blank">手机版2018春节贺卡</a></center>
+				</div><!-- modal-body -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+				</div><!-- modal-footer -->
+			</div><!-- modal-content -->
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+	
+	<!-- page flower -->
+	<script src="index/js/snowfall.jquery.js"></script> 	
+	<script src="index/js/bootstrap.min.js"></script>
+	<script src="index/js/highcharts.js"></script>
+	<!-- for table -->
+	<script src="index/js/highcharts-3d.js"></script>
+	<script src="index/js/drilldown.js"></script>
+	<script src="index/js/data.js"></script>
+	<!-- stars text -->
+	<script src="index/js/starstext.js"></script>
+	<!-- web js -->
+	<script src="index/js/index.js"></script>
+
+</body>
+</html>
+<!--
